@@ -19,23 +19,73 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<!-- HEADER -->
+<header class="sticky-md-top">
+    <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a aria-current="page" href="/">
+            <img src="img/ComDes.png" class="logo">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/purchases">Compras</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/providers">Fornecedores</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/users">Utilizadores</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/typologies">Tipologias</a>
+                </li>
+
+
+                <?php if (\app\core\Application::isGest()): ?>
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/login">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Registo</a>
+                        </li>
+                    </ul>
+                <?php else: ?>
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/profile">
+                                Prefil
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/logout">
+                                Bem-vindo <?php echo \app\core\Application::$app->user->getDisplayName() ?> [Sair]
+                            </a>
+                        </li>
+                    </ul>
+                <?php endif; ?>
+
             </ul>
 
         </div>
     </div>
 </nav>
+
+
+    </div>
+</header>
 
 <div class="container">
     <?php if (\app\core\Application::$app->session->getFlash('success')): ?>

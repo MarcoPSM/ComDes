@@ -1,10 +1,7 @@
 <?php
 
 
-use app\controllers\AuthController;
-use app\controllers\MapController;
 use app\controllers\SiteController;
-use app\controllers\TicTacToeController;
 use app\core\Application;
 use app\models\User;
 
@@ -32,6 +29,14 @@ $app = new Application(dirname(__DIR__), $config);
 //$app->router->get('/contact', 'contact');
 
 $app->router->get('/', [SiteController::class, 'home']);
+$app->router->get('/purchases', [SiteController::class, 'purchases']);
+$app->router->get('/providers', [SiteController::class, 'providers']);
+$app->router->get('/users', [SiteController::class, 'users']);
+$app->router->get('/typologies', [SiteController::class, 'typologies']);
+$app->router->get('/login', [SiteController::class, 'login']);
+$app->router->get('/register', [SiteController::class, 'register']);
+$app->router->get('/profile', [SiteController::class, 'profile']);
+$app->router->get('/logout', [SiteController::class, 'logout']);
 
 
 $app->run();
