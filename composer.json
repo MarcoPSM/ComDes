@@ -1,0 +1,19 @@
+{
+  "name": "marco/base-mvc",
+  "description": "Personal PHP base for mvc projects",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Marco Martins",
+      "email": "marcopaulomartins@hotail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  },
+  "require": {
+    "vlucas/phpdotenv": "^5.4"
+  }
+}
